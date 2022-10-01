@@ -4,6 +4,8 @@
  * Description: Activity 05 - Node (each tree node has a label, a key-value map, and branches)
  */
 
+import src.Lexeme
+
 import scala.collection.mutable.ArrayBuffer
 
 class Node(var lexeme: Lexeme) {

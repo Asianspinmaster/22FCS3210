@@ -54,11 +54,11 @@ public class Player {
 
 output
 ```
-Lexeme(public, PUBLIC)
-Lexeme(class, CLASS)
-Lexeme(Player, IDENTIFIER)
-Lexeme({, BLOCK_OPEN)
-Lexeme(}, BLOCK_CLOSE)
+src.Lexeme(public, PUBLIC)
+src.Lexeme(class, CLASS)
+src.Lexeme(Player, IDENTIFIER)
+src.Lexeme({, BLOCK_OPEN)
+src.Lexeme(}, BLOCK_CLOSE)
 ```
 
 ### source2.java
@@ -70,13 +70,13 @@ final class SpiderMan extends Player {
  
 output
 ```
-Lexeme(final, FINAL)
-Lexeme(class, CLASS)
-Lexeme(SpiderMan, IDENTIFIER)
-Lexeme(extends, EXTENDS)
-Lexeme(Player, IDENTIFIER)
-Lexeme({, BLOCK_OPEN)
-Lexeme(}, BLOCK_CLOSE)
+src.Lexeme(final, FINAL)
+src.Lexeme(class, CLASS)
+src.Lexeme(SpiderMan, IDENTIFIER)
+src.Lexeme(extends, EXTENDS)
+src.Lexeme(Player, IDENTIFIER)
+src.Lexeme({, BLOCK_OPEN)
+src.Lexeme(}, BLOCK_CLOSE)
 ```
 
 ### source3.java
@@ -88,15 +88,15 @@ abstract class SpiderMan extends Player implements Ability2Jump {
 
 output
 ```
-Lexeme(abstract, ABSTRACT)
-Lexeme(class, CLASS)
-Lexeme(SpiderMan, IDENTIFIER)
-Lexeme(extends, EXTENDS)
-Lexeme(Player, IDENTIFIER)
-Lexeme(implements, IMPLEMENTS)
-Lexeme(Ability2Jump, IDENTIFIER)
-Lexeme({, BLOCK_OPEN)
-Lexeme(}, BLOCK_CLOSE)
+src.Lexeme(abstract, ABSTRACT)
+src.Lexeme(class, CLASS)
+src.Lexeme(SpiderMan, IDENTIFIER)
+src.Lexeme(extends, EXTENDS)
+src.Lexeme(Player, IDENTIFIER)
+src.Lexeme(implements, IMPLEMENTS)
+src.Lexeme(Ability2Jump, IDENTIFIER)
+src.Lexeme({, BLOCK_OPEN)
+src.Lexeme(}, BLOCK_CLOSE)
 ```
 
 ### source4.java
@@ -108,17 +108,17 @@ abstract class SpiderMan extends Player implements Ability2Jump, Iterable {
 
 output
 ```
-Lexeme(abstract, ABSTRACT)
-Lexeme(class, CLASS)
-Lexeme(SpiderMan, IDENTIFIER)
-Lexeme(extends, EXTENDS)
-Lexeme(Player, IDENTIFIER)
-Lexeme(implements, IMPLEMENTS)
-Lexeme(Ability2Jump, IDENTIFIER)
-Lexeme(,, COMMA)
-Lexeme(Iterable, IDENTIFIER)
-Lexeme({, BLOCK_OPEN)
-Lexeme(}, BLOCK_CLOSE)
+src.Lexeme(abstract, ABSTRACT)
+src.Lexeme(class, CLASS)
+src.Lexeme(SpiderMan, IDENTIFIER)
+src.Lexeme(extends, EXTENDS)
+src.Lexeme(Player, IDENTIFIER)
+src.Lexeme(implements, IMPLEMENTS)
+src.Lexeme(Ability2Jump, IDENTIFIER)
+src.Lexeme(,, COMMA)
+src.Lexeme(Iterable, IDENTIFIER)
+src.Lexeme({, BLOCK_OPEN)
+src.Lexeme(}, BLOCK_CLOSE)
 ```
 
 ### source5.java
@@ -128,13 +128,13 @@ _Money$Money class } extends Wall Street {
 
 output
 ```
-Lexeme(_Money$Money, IDENTIFIER)
-Lexeme(class, CLASS)
-Lexeme(}, BLOCK_CLOSE)
-Lexeme(extends, EXTENDS)
-Lexeme(Wall, IDENTIFIER)
-Lexeme(Street, IDENTIFIER)
-Lexeme({, BLOCK_OPEN)
+src.Lexeme(_Money$Money, IDENTIFIER)
+src.Lexeme(class, CLASS)
+src.Lexeme(}, BLOCK_CLOSE)
+src.Lexeme(extends, EXTENDS)
+src.Lexeme(Wall, IDENTIFIER)
+src.Lexeme(Street, IDENTIFIER)
+src.Lexeme({, BLOCK_OPEN)
 ```
 
 ### source6.java
@@ -144,8 +144,8 @@ _Money$Money class } > Wall Street {
 
 output
 ```
-Lexeme(_Money$Money, IDENTIFIER)
-Lexeme(class, CLASS)
-Lexeme(}, BLOCK_CLOSE)
+src.Lexeme(_Money$Money, IDENTIFIER)
+src.Lexeme(class, CLASS)
+src.Lexeme(}, BLOCK_CLOSE)
 Exception in thread "main" java.lang.Exception: Lexical Analyzer Error: unrecognizable symbol found!
 ```

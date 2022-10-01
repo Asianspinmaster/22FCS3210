@@ -23,15 +23,15 @@ Write a lexical analyzer for the language described by the grammar. The output o
 output: 
 
 ```
-Lexeme(52, LITERAL)
-Lexeme(+, ADDITION)
-Lexeme(x, IDENTIFIER)
-Lexeme(*, MULTIPLICATION)
-Lexeme(231, LITERAL)
-Lexeme(/, DIVISION)
-Lexeme(y, IDENTIFIER)
-Lexeme(-, SUBTRACTION)
-Lexeme(8, LITERAL)
+src.Lexeme(52, LITERAL)
+src.Lexeme(+, ADDITION)
+src.Lexeme(x, IDENTIFIER)
+src.Lexeme(*, MULTIPLICATION)
+src.Lexeme(231, LITERAL)
+src.Lexeme(/, DIVISION)
+src.Lexeme(y, IDENTIFIER)
+src.Lexeme(-, SUBTRACTION)
+src.Lexeme(8, LITERAL)
 ```
  
 ## Source 2 
@@ -43,13 +43,13 @@ z + 3 - x * 2931
 output: 
 
 ```
-Lexeme(z, IDENTIFIER)
-Lexeme(+, ADDITION)
-Lexeme(3, LITERAL)
-Lexeme(-, SUBTRACTION)
-Lexeme(x, IDENTIFIER)
-Lexeme(*, MULTIPLICATION)
-Lexeme(2931, LITERAL)
+src.Lexeme(z, IDENTIFIER)
+src.Lexeme(+, ADDITION)
+src.Lexeme(3, LITERAL)
+src.Lexeme(-, SUBTRACTION)
+src.Lexeme(x, IDENTIFIER)
+src.Lexeme(*, MULTIPLICATION)
+src.Lexeme(2931, LITERAL)
 ``` 
 
 ## Source 3 
@@ -67,17 +67,17 @@ x +   4
 output: 
 
 ```
-Lexeme(x, IDENTIFIER)
-Lexeme(+, ADDITION)
-Lexeme(4, LITERAL)
-Lexeme(-, SUBTRACTION)
-Lexeme(2, LITERAL)
-Lexeme(/, DIVISION)
-Lexeme(a, IDENTIFIER)
-Lexeme(b, IDENTIFIER)
-Lexeme(c, IDENTIFIER)
-Lexeme(+, ADDITION)
-Lexeme(2, LITERAL)
+src.Lexeme(x, IDENTIFIER)
+src.Lexeme(+, ADDITION)
+src.Lexeme(4, LITERAL)
+src.Lexeme(-, SUBTRACTION)
+src.Lexeme(2, LITERAL)
+src.Lexeme(/, DIVISION)
+src.Lexeme(a, IDENTIFIER)
+src.Lexeme(b, IDENTIFIER)
+src.Lexeme(c, IDENTIFIER)
+src.Lexeme(+, ADDITION)
+src.Lexeme(2, LITERAL)
 ```
  
 ## Source 4

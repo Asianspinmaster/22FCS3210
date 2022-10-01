@@ -2,7 +2,7 @@
  * CS3210 - Principles of Programming Languages - Fall 2022
  * Instructor: Thyago Mota
  * Description: Prg 01 - MouseInterpreter
- * Student(s) Name(s):
+ * Student(s) Name(s): Samuel Vang
  */
 
 import scala.collection.mutable

@@ -11,12 +11,18 @@ A die is defined by a number of sides (at least 2) and a value that keeps the di
  */
 class Die {
 
+    //sides: explicit heap-dynamic
     private int sides;
+    //value: explicit heap-dynamic
     private int value;
+    //MIN_SIDES: static
     private static final int MIN_SIDES = 2;
+    //DEFAULT_SIDES: static
     private static final int DEFAULT_SIDES = 6;
+    //INIT_VALUE: static
     private static final int INIT_VALUE = 1;
 
+    //sides(parameter): stack-dynamic
     public Die(int sides) {
         if (sides < MIN_SIDES)
             this.sides = MIN_SIDES;

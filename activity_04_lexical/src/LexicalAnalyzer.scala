@@ -6,6 +6,8 @@
  */
 
 import LexicalAnalyzer.{BLANKS, DIGITS, LETTERS, NEW_LINE, PUNCTUATIONS, SPECIALS}
+import src.Lexeme
+
 import scala.io.Source
 
 class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
@@ -82,45 +84,30 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           return new Lexeme("eof", Token.EOF)
 
         if (hasLetter) {
-            var str = getChar + ""
+            val str = getChar + ""
             nextChar
-          while ((hasLetter || hasDigit) && !eof) {
-            str += getChar
-            nextChar
-          }
-          return new Lexeme(str, Token.IDENTIFIER)
+            return new Lexeme(str, Token.IDENTIFIER)
         }
-        // TODOd #1: identify a literal value
+        // TODO #1: identify a literal value
         else if (hasDigit) {
-          var str = ""
-          while (hasDigit && !eof) {
-            str += getChar
-            nextChar
-          }
-          return new Lexeme(str, Token.LITERAL)
+
         }
         else if (getChar == '+') {
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.ADDITION)
         }
-        // TODOd #2: identify a subtraction operator
+        // TODO #2: identify a subtraction operator
         else if (getChar == '-') {
-          val str = getChar + ""
-          nextChar
-          return new Lexeme(str, Token.SUBTRACTION)
+
         }
-        // TODOd #3: identify a multiplication operator
+        // TODO #3: identify a multiplication operator
         else if (getChar == '*') {
-          val str = getChar + ""
-          nextChar
-          return new Lexeme(str, Token.MULTIPLICATION)
+
         }
-        // TODOd #4: identify a division operator
+        // TODO #4: identify a division operator
         else if (getChar == '/') {
-          val str = getChar + ""
-          nextChar
-          return new Lexeme(str, Token.DIVISION)
+
         }
 
         // throw an exception if an unrecognizable symbol is found

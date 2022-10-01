@@ -2,7 +2,7 @@
  * CS3210 - Principles of Programming Languages - Fall 2022
  * Instructor: Thyago Mota
  * Description: Prg 01 - SyntaxAnalyzer (an iterable syntax analyzer)
- * Student(s) Name(s):
+ * Student(s) Name(s): Samuel Vang
  */
 
 class SyntaxAnalyzer(private var source: String) {

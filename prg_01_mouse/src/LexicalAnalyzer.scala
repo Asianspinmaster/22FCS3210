@@ -2,7 +2,7 @@
  * CS3210 - Principles of Programming Languages - Fall 2022
  * Instructor: Thyago Mota
  * Description: Prg 01 - LexicalAnalyzer (an iterable lexical analyzer)
- * Student(s) Name(s):
+ * Student(s) Name(s): Samuel Vang
  */
 
 import LexicalAnalyzer.{BLANKS, DIGITS, LETTERS, NEW_LINE, PUNCTUATIONS, SPECIALS}
@@ -75,11 +75,183 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
         !eof
       }
 
-      // TODO: return the next lexeme (or Token.EOF if there isn't any lexeme left to be read)
+      // return the next lexeme (or Token.EOF if there isn't any lexeme left to be read)
       override def next(): Lexeme = {
 
         if (!hasNext)
           return new Lexeme("eof", Token.EOF)
+
+        if (getChar == ';'){
+          var str = ""
+          nextChar
+          nextChar
+          while (getChar != NEW_LINE){
+            str += getChar
+            nextChar
+          }
+          return new Lexeme(str, Token.COMMENT)
+        }
+
+        else if (getChar == '$'){
+          var str = getChar + ""
+          nextChar
+          if (getChar == '$'){
+            str += getChar
+            nextChar
+            return new Lexeme(str, Token.EO_PRG)
+          }
+        }
+
+        else if (getChar == '?'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.INPUT)
+        }
+
+        else if (getChar == '!'){
+          var str = getChar + ""
+          nextChar
+          if (getChar == '='){
+            str += getChar
+            nextChar
+            return new Lexeme(str, Token.DIFFERENT)
+          }
+          else {
+            return new Lexeme(str, Token.OUTPUT)
+          }
+        }
+
+        else if (getChar == '"'){
+          var str = ""
+          nextChar
+          while (getChar != '"'){
+            str += getChar
+            nextChar
+          }
+          nextChar
+          return new Lexeme(str, Token.STRING)
+        }
+
+        else if (hasLetter){
+          var str = getChar + ""
+          nextChar
+          while(hasLetter || hasDigit || getChar == '_'){
+            str += getChar
+            nextChar
+          }
+          return new Lexeme(str, Token.IDENTIFIER)
+        }
+
+        else if (getChar == '='){
+          var str = getChar + ""
+          nextChar
+          if (getChar == '='){
+            str += getChar
+            nextChar
+            return new Lexeme(str, Token.EQUAL)
+          }
+          else {
+            return new Lexeme(str, Token.ASSIGNMENT)
+          }
+        }
+
+        else if (hasDigit){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.LITERAL)
+        }
+
+        else if (getChar == '+'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.ADDITION)
+        }
+
+        else if (getChar == '-'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.SUBTRACTION)
+        }
+
+        else if (getChar == '*'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.MULTIPLICATION)
+        }
+
+        else if (getChar == '/'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.DIVISION)
+        }
+
+        else if (getChar == '%'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.MODULUS)
+        }
+
+        else if (getChar == '<'){
+          var str = getChar + ""
+          nextChar
+          if (getChar == '='){
+            str += getChar
+            nextChar
+            return new Lexeme(str, Token.LESS_EQUAL)
+          }
+          else {
+            return new Lexeme(str, Token.LESS)
+          }
+        }
+
+        else if (getChar == '>'){
+          var str = getChar + ""
+          nextChar
+          if (getChar == '='){
+            str += getChar
+            nextChar
+            return new Lexeme(str, Token.GREATER_EQUAL)
+          }
+          else {
+            return new Lexeme(str, Token.GREATER)
+          }
+        }
+
+        else if (getChar == '^'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.BREAK)
+        }
+
+        else if (getChar == '.'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.DOT)
+        }
+
+        else if (getChar == '('){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.OPEN_PAR)
+        }
+
+        else if (getChar == ')'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.CLOSE_PAR)
+        }
+
+        else if (getChar == '['){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.OPEN_BRACKET)
+        }
+
+        else if (getChar == ']'){
+          val str = getChar + ""
+          nextChar
+          return new Lexeme(str, Token.CLOSE_BRACKET)
+        }
 
         // throw an exception if an unrecognizable symbol is found
         throw new Exception("Lexical Analyzer Error: unrecognizable symbol \"" + getChar + "\" found!")

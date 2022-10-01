@@ -6,6 +6,8 @@
  */
 
 import LexicalAnalyzer.{BLANKS, DIGITS, LETTERS, NEW_LINE, PUNCTUATIONS, SPECIALS}
+import src.Lexeme
+
 import scala.io.Source
 
 class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
