@@ -81,6 +81,7 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
         if (!hasNext)
           return new Lexeme("eof", Token.EOF)
 
+        // identifies comment
         if (getChar == ';'){
           var str = ""
           nextChar
@@ -92,6 +93,7 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           return new Lexeme(str, Token.COMMENT)
         }
 
+        // identifies end of program
         else if (getChar == '$'){
           var str = getChar + ""
           nextChar
@@ -102,12 +104,14 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           }
         }
 
+        // identifies input
         else if (getChar == '?'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.INPUT)
         }
 
+        // identifies different or output
         else if (getChar == '!'){
           var str = getChar + ""
           nextChar
@@ -121,6 +125,7 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           }
         }
 
+        // identifies string
         else if (getChar == '"'){
           var str = ""
           nextChar
@@ -132,6 +137,7 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           return new Lexeme(str, Token.STRING)
         }
 
+        // identifies identifier
         else if (hasLetter){
           var str = getChar + ""
           nextChar
@@ -142,6 +148,7 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           return new Lexeme(str, Token.IDENTIFIER)
         }
 
+        // identifies equal or assignment
         else if (getChar == '='){
           var str = getChar + ""
           nextChar
@@ -155,42 +162,49 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           }
         }
 
+        // identifies literal
         else if (hasDigit){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.LITERAL)
         }
 
+        // identifies addition
         else if (getChar == '+'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.ADDITION)
         }
 
+        // identifies subtraction
         else if (getChar == '-'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.SUBTRACTION)
         }
 
+        // identifies multiplication
         else if (getChar == '*'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.MULTIPLICATION)
         }
 
+        // identifies division
         else if (getChar == '/'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.DIVISION)
         }
 
+        // identifies module
         else if (getChar == '%'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.MODULUS)
         }
 
+        // identifies less or less/equal
         else if (getChar == '<'){
           var str = getChar + ""
           nextChar
@@ -204,6 +218,7 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           }
         }
 
+        // identifies greater or greater/equal
         else if (getChar == '>'){
           var str = getChar + ""
           nextChar
@@ -217,36 +232,42 @@ class LexicalAnalyzer(private var source: String) extends Iterable[Lexeme]{
           }
         }
 
+        // identifies break
         else if (getChar == '^'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.BREAK)
         }
 
+        // identifies dot
         else if (getChar == '.'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.DOT)
         }
 
+        // identifies open parentheses
         else if (getChar == '('){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.OPEN_PAR)
         }
 
+        // identifies close parentheses
         else if (getChar == ')'){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.CLOSE_PAR)
         }
 
+        // identifies open bracket
         else if (getChar == '['){
           val str = getChar + ""
           nextChar
           return new Lexeme(str, Token.OPEN_BRACKET)
         }
 
+        // identifies close bracket
         else if (getChar == ']'){
           val str = getChar + ""
           nextChar
