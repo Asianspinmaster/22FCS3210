@@ -3,4 +3,49 @@
 ; Description: computes nCk (number of ways to select r items from a set of n items where the order of selection does not matter).
 ; Student(s) Name(s): Samuel Vang
 
+R "Select r number of items: " ? =
+N "Select n items in set: " ? =
+(
+    R. N. > [ "r has to be less than or equal to n!" ]
+    R. N. <= ^
+    R "R? " ? =
+)
+
+N. 0 == [ x 1 = ]   ; get x
+N. 0 > [
+    i 1 =
+    x 1 =
+    (
+        i. N. > ^
+        x x. i. * =
+        i i. 1 + =
+    )
+]
+
+R. 0 == [ y 1 = ]   ; get y
+R. 0 > [
+    i 1 =
+    y 1 =
+    (
+        i. N. > ^
+        y y. i. * =
+        i i. 1 + =
+    )
+]
+
+N. R. - 0 == [ z 1 = ]  ; get z
+N. R. - 0 > [
+    i 1 =
+    z 1 =
+    (
+        i. N. R. - > ^
+        z z. i. * =
+        i i. 1 + =
+    )
+]
+
+y y. z. * =      ; (y*z)
+x x. y. / =      ; (x/y)
+"nCk = " x. !
+
 $$
